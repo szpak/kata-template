@@ -1,6 +1,16 @@
-apply plugin: 'groovy'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.1.10'
+    }
+}
 
-project.group = "info.solidsoft.kata"
+apply plugin: 'groovy'
+apply plugin: "info.solidsoft.pitest"
+
+project.group = "kata"
 project.version = "0.0.1"
 
 sourceCompatibility = 1.8
@@ -16,8 +26,12 @@ dependencies {
     testCompile 'org.mockito:mockito-core:2.2.6'
     testCompile 'info.solidsoft.mockito:mockito-java8:2.0.0'
     testCompile 'org.assertj:assertj-core:3.5.2'
+    testCompile 'pl.pragmatists:JUnitParams:1.0.4'
 
     testCompile 'org.spockframework:spock-core:1.1-groovy-2.4-rc-2'
+    testCompile 'info.solidsoft.spock:spock-global-unroll:0.5.1'
 }
 
-//TODO: Add PIT
+pitest {
+    timestampedReports = false
+}
