@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+
+project.group = "info.solidsoft.kata"
+project.version = "0.0.1"
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.7'
+
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:2.2.6'
+    testCompile 'info.solidsoft.mockito:mockito-java8:2.0.0'
+    testCompile 'org.assertj:assertj-core:3.5.2'
+
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4-rc-2'
+}
+
+//TODO: Add PIT
